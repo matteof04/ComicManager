@@ -17,6 +17,7 @@ ComicManager is released under the GNU GPLv3 license. For more information see t
 ### Supported output format
 - CBZ
 - EPUB 3
+- KEPUB
 - MOBI ([Require KindleGen](https://web.archive.org/web/20190817070956/https://www.amazon.com/gp/feature.html?docId=1000765211)) (Not tested)
 
 ### Supported devices
