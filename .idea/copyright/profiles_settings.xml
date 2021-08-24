@@ -1,0 +1,7 @@
+<component name="CopyrightManager">
+  <settings default="GNU GPLv3">
+    <module2copyright>
+      <element module="Production" copyright="GNU GPLv3" />
+    </module2copyright>
+  </settings>
+</component>
