@@ -9,6 +9,8 @@ repositories {
     maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
 }
 
+version = "1.0.0"
+
 dependencies {
     implementation("com.sksamuel.scrimage:scrimage-core:4.0.22")
     implementation("com.sksamuel.scrimage:scrimage-filters:4.0.22")

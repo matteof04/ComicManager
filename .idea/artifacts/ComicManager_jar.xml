@@ -1,7 +1,7 @@
 <component name="ArtifactManager">
   <artifact type="jar" name="ComicManager:jar">
     <output-path>$PROJECT_DIR$/out/artifacts/ComicManager_jar</output-path>
-    <root id="archive" name="ComicManager.main.jar">
+    <root id="archive" name="ComicManager.jar">
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/src/main/kotlin/META-INF/MANIFEST.MF" />
       </element>
