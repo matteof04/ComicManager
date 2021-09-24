@@ -20,10 +20,7 @@ import com.github.matteof04.comicmanager.formats.util.PageProgressionDirections
 import com.github.matteof04.comicmanager.util.Panel
 import com.github.matteof04.comicmanager.util.mkdir
 import java.nio.file.Path
-import kotlin.io.path.createTempDirectory
-import kotlin.io.path.forEachDirectoryEntry
-import kotlin.io.path.isDirectory
-import kotlin.io.path.moveTo
+import kotlin.io.path.*
 
 /**
  * The class for the CBZ format
@@ -41,7 +38,7 @@ class CBZ(
         val chapterDir = temp.resolve(chapter.title)
         chapterDir.mkdir()
         chapter.pages.forEach {
-            it.image.moveTo(chapterDir)
+            it.image.moveTo(chapterDir.resolve(it.image.name))
         }
     }
 
