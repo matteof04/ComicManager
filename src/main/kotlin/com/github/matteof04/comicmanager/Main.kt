@@ -12,6 +12,7 @@
 
 package com.github.matteof04.comicmanager
 
+import com.github.matteof04.comicmanager.updater.Updater
 import kotlin.system.measureTimeMillis
 
 fun main(args: Array<String>){
@@ -26,6 +27,15 @@ fun main(args: Array<String>){
             under certain conditions; type `-l' or '--license' for details.
             
         """.trimIndent())
+        try {
+            val updater = Updater(VERSION)
+            if (updater.checkUpdate()){
+                println("There's a new version available, click here to download!\n")
+                println(updater.getUpdateURL())
+            }
+        }catch (e:Exception){
+
+        }
         val time = measureTimeMillis {
             mainCli(args)
         } / 1000.0
