@@ -154,7 +154,7 @@ open class EPUB(
         """.trimIndent()
         var navMap = ""
         chapters.forEach {
-            navMap += "<navPoint id=\"Text_${it.title}\"><navLabel><text>Chapter ${it.title}</text></navLabel><content src=\"Text/${it.title}/${it.pages.first().image.toFile().nameWithoutExtension+".xhtml"}\"/></navPoint>\n"
+            navMap += "<navPoint id=\"Text_${it.title}\"><navLabel><text>${it.title}</text></navLabel><content src=\"Text/${it.title}/${it.pages.first().image.toFile().nameWithoutExtension+".xhtml"}\"/></navPoint>\n"
         }
         return startString + navMap + stopString
     }
@@ -190,7 +190,7 @@ open class EPUB(
         """.trimIndent()
         var navMap = ""
         chapters.forEach {
-            navMap += "<li><a href=\"Text/${it.title}/${it.pages.first().image.toFile().nameWithoutExtension+".xhtml"}\">Chapter ${it.title}</a></li>"
+            navMap += "<li><a href=\"Text/${it.title}/${it.pages.first().image.toFile().nameWithoutExtension+".xhtml"}\">${it.title}</a></li>"
         }
         return startString + navMap + middleString + navMap + stopString
     }
