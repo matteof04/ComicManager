@@ -12,6 +12,8 @@
 
 package com.github.matteof04.comicmanager.image
 
+import androidx.compose.material.SnackbarDefaults.backgroundColor
+import com.github.matteof04.comicmanager.bookcreator.BookOptions
 import com.sksamuel.scrimage.AutocropOps
 import com.sksamuel.scrimage.ImmutableImage
 import com.sksamuel.scrimage.Position
@@ -27,6 +29,7 @@ import com.github.matteof04.comicmanager.util.PanelMetadata
 import com.sksamuel.scrimage.filter.GaussianBlurFilter
 import java.awt.Color
 import java.awt.Rectangle
+import java.lang.RuntimeException
 import java.nio.file.Path
 import kotlin.io.path.createTempDirectory
 
@@ -40,27 +43,20 @@ class ImageProcessor(private val deviceInformation: DeviceInformation) {
     /**
      * Transform an image into a Panel with several optimization
      * @param path [Path] The path of image to transform
-     * @param resizeMode [ResizeModes] How the image must be resized
-     * @param splitMode [SplitModes] How the double-page image must be treated
-     * @param backgroundColor [BackgroundColors] The fill color for the screen
-     * @param contrast [Double] The contrast value for the image (use 1.0 to leave the image as-is, set null to set auto contrast function)
+     * @param options [BookOptions] All the options for the panel preparation wrapped in an object
      * @return [ArrayList] Two panel if the passed image is a double-page image and the splitMode is set to SPLIT, one panel in other cases
      */
     fun preparePanel(
         path: Path,
-        resizeMode: ResizeModes,
-        splitMode: SplitModes,
-        backgroundColor: BackgroundColors,
-        pageProgressionDirection: PageProgressionDirections,
-        contrast: Double? = 1.0
+        options: BookOptions
     ): ArrayList<Panel> {
         val image = ImmutableImage.loader().fromPath(path)
         if (image.width > image.height) {
-            return when (splitMode) {
+            return when (options.splitMode) {
                 SplitModes.ROTATE -> {
                     arrayListOf(
                         Panel(
-                            prepareImage(image.rotateLeft(), resizeMode, backgroundColor, contrast).output(
+                            prepareImage(image.rotateLeft(), options.resizeMode, options.backgroundColor, options.contrast).output(
                                 JpegWriter.Default,
                                 temp.resolve(path.toFile().nameWithoutExtension.padStart(4, '0') + ".jpg")
                             ), PanelMetadata.ROTATED
@@ -72,21 +68,21 @@ class ImageProcessor(private val deviceInformation: DeviceInformation) {
                         image.resizeTo(image.width / 2, image.height, Position.CenterLeft)
                     val secondImage =
                         image.resizeTo(image.width / 2, image.height, Position.CenterRight)
-                    val preparedFirstImage = prepareImage(firstImage, resizeMode, BackgroundColors.NONE, contrast).output(
+                    val preparedFirstImage = prepareImage(firstImage, options.resizeMode, BackgroundColors.NONE, options.contrast).output(
                         JpegWriter.Default,
-                        temp.resolve(path.toFile().nameWithoutExtension.padStart(4, '0') + "-${pageProgressionDirection.getFirstSplitSuffix()}.jpg")
+                        temp.resolve(path.toFile().nameWithoutExtension.padStart(4, '0') + "-${options.pageProgressionDirection.getFirstSplitSuffix()}.jpg")
                     )
-                    val preparedSecondImage = prepareImage(secondImage, resizeMode, BackgroundColors.NONE, contrast).output(
+                    val preparedSecondImage = prepareImage(secondImage, options.resizeMode, BackgroundColors.NONE, options.contrast).output(
                         JpegWriter.Default,
-                        temp.resolve(path.toFile().nameWithoutExtension.padStart(4, '0') + "-${pageProgressionDirection.getSecondSplitSuffix()}.jpg")
+                        temp.resolve(path.toFile().nameWithoutExtension.padStart(4, '0') + "-${options.pageProgressionDirection.getSecondSplitSuffix()}.jpg")
                     )
-                    Panel.getDoublePanel(preparedFirstImage, preparedSecondImage, pageProgressionDirection)
+                    Panel.getDoublePanel(preparedFirstImage, preparedSecondImage, options.pageProgressionDirection)
                 }
             }
         }
         return arrayListOf(
             Panel(
-                prepareImage(image, resizeMode, backgroundColor, contrast).output(
+                prepareImage(image, options.resizeMode, options.backgroundColor, options.contrast).output(
                     JpegWriter.Default,
                     temp.resolve(path.toFile().nameWithoutExtension.padStart(4, '0') + ".jpg")
                 )
@@ -134,7 +130,11 @@ class ImageProcessor(private val deviceInformation: DeviceInformation) {
         val x2 = AutocropOps.scanleft(backgroundColor, image.height, image.width, image.width - 1, pixelsExtractor, tolerance)
         val y1 = AutocropOps.scandown(backgroundColor, image.height, image.width, 0, pixelsExtractor, tolerance)
         val y2 = AutocropOps.scanup(backgroundColor, image.height, image.width, image.height - 1, pixelsExtractor, tolerance)
-        return image.subimage(x1, y1, x2 - x1, y2 - y1)
+        return try {
+            image.subimage(x1, y1, x2 - x1, y2 - y1)
+        }catch (e: RuntimeException){
+            image
+        }
     }
 
     /**
