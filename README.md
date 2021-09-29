@@ -43,7 +43,7 @@ ComicManager is released under the GNU GPLv3 license. For more information see t
 ###### NOTE: Only the Kobo Forma has been tested
 
 ## Usage
-Currently, ComicManager is available only as a CLI software. A GUI is coming soon.
+Currently, ComicManager is available only as a CLI software.
 ```
 Usage: ComicManager options_list
 Options: 
