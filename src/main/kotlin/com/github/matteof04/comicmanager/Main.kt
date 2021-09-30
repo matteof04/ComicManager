@@ -16,29 +16,25 @@ import com.github.matteof04.comicmanager.updater.Updater
 import kotlin.system.measureTimeMillis
 
 fun main(args: Array<String>){
-    if(args.isEmpty()){
-        mainUI()
-    }else {
-        println("""
-            ComicManager  Copyright (C) 2021  Matteo Franceschini
-            
-            This program comes with ABSOLUTELY NO WARRANTY.
-            This is free software, and you are welcome to redistribute it
-            under certain conditions; type `-l' or '--license' for details.
-            
-        """.trimIndent())
-        try {
-            val updater = Updater(VERSION)
-            if (updater.checkUpdate()){
-                println("There's a new version available, click here to download!\n")
-                println(updater.getUpdateURL())
-            }
-        }catch (e:Exception){
+    println("""
+        ComicManager  Copyright (C) 2021  Matteo Franceschini
 
+        This program comes with ABSOLUTELY NO WARRANTY.
+        This is free software, and you are welcome to redistribute it
+        under certain conditions; type `-l' or '--license' for details.
+
+    """.trimIndent())
+    try {
+        val updater = Updater(VERSION)
+        if (updater.checkUpdate()){
+            println("There's a new version available, click here to download!\n")
+            println(updater.getUpdateURL())
         }
-        val time = measureTimeMillis {
-            mainCli(args)
-        } / 1000.0
-        println("Execution time: $time")
+    }catch (e:Exception){
+
     }
+    val time = measureTimeMillis {
+        mainCli(args)
+    } / 1000.0
+    println("Execution time: $time")
 }
