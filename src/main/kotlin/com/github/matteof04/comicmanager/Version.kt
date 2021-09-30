@@ -12,4 +12,4 @@
 
 package com.github.matteof04.comicmanager
 
-val VERSION = "1.0.0"
+val VERSION = "2.0.0"
