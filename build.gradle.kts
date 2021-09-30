@@ -3,12 +3,10 @@ import org.jetbrains.kotlin.contracts.model.structure.UNKNOWN_COMPUTATION.type
 plugins {
     kotlin("jvm") version "1.5.21"
     kotlin("plugin.serialization") version "1.5.21"
-    id("org.jetbrains.compose") version "1.0.0-alpha3"
 }
 
 repositories {
     mavenCentral()
-    maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
     google()
 }
 
@@ -27,11 +25,6 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2-native-mt")
     implementation("com.lordcodes.turtle:turtle:0.5.0")
     testImplementation("org.jetbrains.kotlin:kotlin-test:1.5.21")
-    implementation(compose.desktop.currentOs)
-    implementation(compose.runtime)
-    implementation(compose.foundation)
-    implementation(compose.material)
-    implementation(compose.materialIconsExtended)
 }
 
 tasks.test {
@@ -40,10 +33,4 @@ tasks.test {
 
 tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
     kotlinOptions.jvmTarget = "11"
-}
-
-compose.desktop {
-    application {
-        mainClass = "MainKt"
-    }
 }
