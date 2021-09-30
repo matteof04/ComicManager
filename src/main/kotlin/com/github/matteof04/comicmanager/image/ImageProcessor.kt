@@ -12,24 +12,20 @@
 
 package com.github.matteof04.comicmanager.image
 
-import androidx.compose.material.SnackbarDefaults.backgroundColor
 import com.github.matteof04.comicmanager.bookcreator.BookOptions
+import com.github.matteof04.comicmanager.devices.base.DeviceInformation
+import com.github.matteof04.comicmanager.image.util.*
+import com.github.matteof04.comicmanager.util.Panel
+import com.github.matteof04.comicmanager.util.PanelMetadata
 import com.sksamuel.scrimage.AutocropOps
 import com.sksamuel.scrimage.ImmutableImage
 import com.sksamuel.scrimage.Position
 import com.sksamuel.scrimage.ScaleMethod
 import com.sksamuel.scrimage.color.RGBColor
-import com.sksamuel.scrimage.filter.MinimumFilter
-import com.sksamuel.scrimage.nio.JpegWriter
-import com.github.matteof04.comicmanager.devices.base.DeviceInformation
-import com.github.matteof04.comicmanager.formats.util.PageProgressionDirections
-import com.github.matteof04.comicmanager.image.util.*
-import com.github.matteof04.comicmanager.util.Panel
-import com.github.matteof04.comicmanager.util.PanelMetadata
 import com.sksamuel.scrimage.filter.GaussianBlurFilter
+import com.sksamuel.scrimage.nio.JpegWriter
 import java.awt.Color
 import java.awt.Rectangle
-import java.lang.RuntimeException
 import java.nio.file.Path
 import kotlin.io.path.createTempDirectory
 
