@@ -12,21 +12,8 @@
 
 package com.github.matteof04.comicmanager.util
 
-import java.nio.file.Path
-import kotlin.io.path.createTempDirectory
-import kotlin.io.path.listDirectoryEntries
-import kotlin.io.path.name
-
-class VolumeSplitter {
-    private val temp = createTempDirectory("VS")
-    fun split(title: String, input: Path, chaptersPerVolume: Int) : Path{
-        val volumes = input.listDirectoryEntries().sortedBy { StringHelper.fixString(it.name) }
-        volumes.chunked(chaptersPerVolume).forEachIndexed { index, volume ->
-            volume.forEach {
-                it.toFile().copyRecursively(temp.resolve("$title - Volume ${index+1}/${it.name}").toFile())
-            }
-        }
-        return temp
+object StringHelper {
+    fun fixString(string: String) =  Regex("([0-9])+\\w+").replace(string) {
+        it.value.padStart(4, '0')
     }
-    fun cleanUp() = temp.toFile().deleteRecursively()
 }

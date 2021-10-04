@@ -17,10 +17,9 @@ import com.github.matteof04.comicmanager.formats.util.Chapter
 import com.github.matteof04.comicmanager.image.ImageProcessor
 import com.github.matteof04.comicmanager.image.util.SplitModes
 import com.github.matteof04.comicmanager.image.util.isImage
-import com.github.matteof04.comicmanager.util.Panel
-import com.github.matteof04.comicmanager.util.containsDirectories
-import com.github.matteof04.comicmanager.util.minOrNSEE
-import kotlinx.coroutines.*
+import com.github.matteof04.comicmanager.util.*
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.launch
 import kotlin.io.path.isDirectory
 import kotlin.io.path.listDirectoryEntries
 import kotlin.io.path.name
@@ -28,7 +27,7 @@ import kotlin.io.path.nameWithoutExtension
 
 @Suppress("BlockingMethodInNonBlockingContext")
 class BookCreator(private val sysOutput: (String) -> Unit) {
-    suspend fun convert(options: BookOptions, sync: Boolean) {
+    suspend fun create(options: BookOptions, sync: Boolean) {
         val processor = ImageProcessor(options.device)
         val inputDir = options.input
         val outputFile = when(options.format){
@@ -54,8 +53,8 @@ class BookCreator(private val sysOutput: (String) -> Unit) {
                             }.takeIf { sync }?.join()
                         }
                     }
-                    outputFile.addChapter(Chapter(chapterDir.name.padStart(4, '0'), pages))
-                    sysOutput("Chapter ${chapterDir.name.padStart(4, '0')} created!")
+                    outputFile.addChapter(Chapter(StringHelper.fixString(chapterDir.name), pages))
+                    sysOutput("Chapter ${chapterDir.name.replace(Regex("([^0-9])*"), "").padStart(4, '0')} created!")
                 }
             }
             coverImage = processor.preparePanel(
@@ -90,4 +89,7 @@ class BookCreator(private val sysOutput: (String) -> Unit) {
         processor.cleanUp()
         sysOutput("Image temporary directory cleaned!")
     }
+
+    @Deprecated("Renamed", ReplaceWith("BookCreator.create()"), DeprecationLevel.WARNING)
+    suspend fun convert(options: BookOptions, sync: Boolean) = create(options, sync)
 }

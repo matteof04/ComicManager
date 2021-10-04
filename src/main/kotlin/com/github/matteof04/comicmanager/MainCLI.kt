@@ -98,7 +98,7 @@ fun mainCli(args: Array<String>){
                 Path(output), Path(input)))
         }
         bookOptions.forEach {
-            bookCreator.convert(it, sync)
+            bookCreator.create(it, sync)
             System.gc()
         }
         splitter?.cleanUp()
