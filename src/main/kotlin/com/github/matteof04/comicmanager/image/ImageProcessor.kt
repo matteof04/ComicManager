@@ -227,7 +227,11 @@ class ImageProcessor(private val deviceInformation: DeviceInformation) {
             }
         }
         return if (backgroundColor == BackgroundColors.NONE){
-            resizedImage.autocrop(getBackgroundColor(image))
+            try {
+                resizedImage.autocrop(getBackgroundColor(image))
+            }catch (e: Exception){
+                resizedImage
+            }
         }else{
             resizedImage
         }
