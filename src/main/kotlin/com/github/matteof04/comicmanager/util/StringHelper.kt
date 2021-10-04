@@ -13,7 +13,7 @@
 package com.github.matteof04.comicmanager.util
 
 object StringHelper {
-    fun fixString(string: String) =  Regex("([0-9])+\\w+").replace(string) {
+    fun fixString(string: String) =  Regex("(?<!\\.)([0-9]+)").replace(string) {
         it.value.padStart(4, '0')
     }
 }
