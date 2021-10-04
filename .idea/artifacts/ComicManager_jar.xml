@@ -1,66 +1,58 @@
 <component name="ArtifactManager">
-  <artifact type="jar" name="ComicManager:jar">
+  <artifact type="jar" name="ComicManager.jar">
     <output-path>$PROJECT_DIR$/out/artifacts/ComicManager_jar</output-path>
     <root id="archive" name="ComicManager.jar">
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/src/main/kotlin/META-INF/MANIFEST.MF" />
       </element>
       <element id="module-output" name="ComicManager.main" />
-      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-coroutines-swing/1.4.3/9da350dc1f729955e20f1f3b45dd14c3c9aa1eeb/kotlinx-coroutines-swing-1.4.3.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/13.0/919f0dfe192fb4e063e7dacadee7f8bb9a2672a9/annotations-13.0.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.twelvemonkeys.imageio/imageio-pcx/3.7.0/dd141a5a957d88c3a90eda56dc39727f1db924c6/imageio-pcx-3.7.0.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.compose.material/material-desktop/0.4.0/210d13a67c94912e31240eea347b3704e2b6651a/material-desktop-0.4.0.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.skiko/skiko-jvm-runtime-linux-x64/0.3.1/aa6b63dfe65b8ead2acfa609080060b2e6f3d476/skiko-jvm-runtime-linux-x64-0.3.1.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.5.20/9de35cc611bcecec8edce1d56d8e659953806751/kotlin-stdlib-1.5.20.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.lingala.zip4j/zip4j/2.9.0/58740da7264264385869d913397e83df3c307687/zip4j-2.9.0.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.compose.ui/ui-desktop/0.4.0/8533de36dc9107fa4e57f377ba147cfc17cba850/ui-desktop-0.4.0.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.zh79325/open-gif/1.0.4/a52a4183dae721cb69dd1fcd4ef34b0bb72d7698/open-gif-1.0.4.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-core/1.1.2/2d23694879c2c12f125dac5076bdfd5d771cc4cb/logback-core-1.1.2.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.compose.ui/ui-geometry-desktop/0.4.0/261a169b4e2816397d8c4e22e63a2d590f99210a/ui-geometry-desktop-0.4.0.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-reflect/1.5.10/d6c70f3c0df2457ea0095c61c1fc1188017dc3bc/kotlin-reflect-1.5.10.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.twelvemonkeys.common/common-lang/3.7.0/3757c85d1f0c6482b4c63f19023fbe712de4c71c/common-lang-3.7.0.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.drewnoakes/metadata-extractor/2.16.0/51092c14d9d7377b17a051333c229f1cd04605e6/metadata-extractor-2.16.0.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.7/2b8019b6249bb05d81d3a3094e468753e2b21311/slf4j-api-1.7.7.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.skiko/skiko-jvm/0.3.1/3b01e23f3c72d27d8b85836f0ab81eb32ccb67f5/skiko-jvm-0.3.1.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.sksamuel.scrimage/scrimage-core/4.0.22/234a725a482df69fd12d7d4530d3c91c007ae666/scrimage-core-4.0.22.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.compose.animation/animation-core-desktop/0.4.0/d838af1fd2a80d1664ffc073df89463023fb6d4b/animation-core-desktop-0.4.0.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.compose.ui/ui-unit-desktop/0.4.0/41ff9a8c171b9136f06eff80635a2330a6086727/ui-unit-desktop-0.4.0.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.twelvemonkeys.imageio/imageio-pnm/3.7.0/92ef07d0b6b279a0a865786eb84f46158fbd1704/imageio-pnm-3.7.0.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.compose.ui/ui-graphics-desktop/0.4.0/428dc38b14978b3fed6a9f1756af36b34baad76e/ui-graphics-desktop-0.4.0.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.compose.ui/ui-util-desktop/0.4.0/6de31edde97babd7339e67bb1b82ebff1a805e9c/ui-util-desktop-0.4.0.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.twelvemonkeys.imageio/imageio-jpeg/3.7.0/7e09b2ff79f9ce23f361d8c2f41c72abcf3ab07/imageio-jpeg-3.7.0.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.sksamuel.scrimage/scrimage-webp/4.0.22/390f44f08a39fc7a26ec9bb8c2e59b1fd46ca2cb/scrimage-webp-4.0.22.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.compose.material/material-ripple-desktop/0.4.0/e2ccee827f2082402b5111368192fcfb579a97f3/material-ripple-desktop-0.4.0.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.compose.foundation/foundation-desktop/0.4.0/ab89b6280cadc4866cafe42ec43ab40faccfcc30/foundation-desktop-0.4.0.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.lordcodes.turtle/turtle/0.5.0/e48cbbad764f6842072e0ddd6688fb007f28f82/turtle-0.5.0.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk7/1.5.20/218b60e1d446d1e0a18bc7aa8663634b136fbcc5/kotlin-stdlib-jdk7-1.5.20.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.compose.runtime/runtime-desktop/0.4.0/2452d00191f736d58f2fa50dd1821623adbaefd9/runtime-desktop-0.4.0.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-coroutines-core-jvm/1.5.1/59d09c330d2977b39e1e4c0e3711fc903e1b46b0/kotlinx-coroutines-core-jvm-1.5.1.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.twelvemonkeys.imageio/imageio-iff/3.7.0/a4ccd43b8646cb18b7b22a3c12993be4480d8d73/imageio-iff-3.7.0.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.compose.desktop/desktop-jvm/0.4.0/58115d964397bd97025cd13a79a055b61194093b/desktop-jvm-0.4.0.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.compose.ui/ui-text-desktop/0.4.0/3a8d29230c7565cd98728f2a1bbfc33d97cd12a5/ui-text-desktop-0.4.0.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-classic/1.1.2/b316e9737eea25e9ddd6d88eaeee76878045c6b2/logback-classic-1.1.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.30/b5a4b6d16ab13e34a88fae84c35cd5d68cac922c/slf4j-api-1.7.30.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-cli-jvm/0.3.2/894f219f721480e91204c77f40455730db717232/kotlinx-cli-jvm-0.3.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk7/1.5.30/525f5a7fa6d7790a571c07dd24214ed2dda352fe/kotlin-stdlib-jdk7-1.5.30.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.ktor/ktor-client-cio-jvm/1.6.3/ea0250e3897da1e404cff36a519156637959d713/ktor-client-cio-jvm-1.6.3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.ktor/ktor-client-core-jvm/1.6.3/e47cdc2eb71b723165dc365a0250fa3f9765ddce/ktor-client-core-jvm-1.6.3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.twelvemonkeys.imageio/imageio-tga/3.7.0/38e4ffb5f02f1b7ac6861ff92c6be1ccc24bedab/imageio-tga-3.7.0.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/ar.com.hjg/pngj/2.1.0/b9a0d5cca5108431c4068976e795d4d2766dab5b/pngj-2.1.0.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.twelvemonkeys.common/common-image/3.7.0/b48b5bd350066b292f964d7f1bf5a1aedf8bb503/common-image-3.7.0.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk8/1.5.20/636c5653641cd956de9aee5792155b07ea49825e/kotlin-stdlib-jdk8-1.5.20.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/commons-io/commons-io/2.11.0/a2503f302b11ebde7ebc3df41daebe0e4eea3689/commons-io-2.11.0.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.compose.material/material-icons-core-desktop/0.4.0/510ee3df8a1fde982a99a40a09d2f39098b47c72/material-icons-core-desktop-0.4.0.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.twelvemonkeys.imageio/imageio-sgi/3.7.0/969187ccb394b9407c54e1da010f53bb186874dd/imageio-sgi-3.7.0.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.compose.runtime/runtime-saveable-desktop/0.4.0/c6c172bc8c57ca718e37858b8d5baf70c9ae5268/runtime-saveable-desktop-0.4.0.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.twelvemonkeys.imageio/imageio-tiff/3.7.0/e017938eaf0a2d650810f245ae962b4b3009b54a/imageio-tiff-3.7.0.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.twelvemonkeys.imageio/imageio-core/3.7.0/5da15caa7f9afdba07af92c004e80251f3ed32f1/imageio-core-3.7.0.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.sksamuel.scrimage/scrimage-filters/4.0.22/6b2d79242a50d551036ec31816406e30108ed86/scrimage-filters-4.0.22.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.sksamuel.scrimage/scrimage-core/4.0.22/234a725a482df69fd12d7d4530d3c91c007ae666/scrimage-core-4.0.22.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.lordcodes.turtle/turtle/0.5.0/e48cbbad764f6842072e0ddd6688fb007f28f82/turtle-0.5.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/commons-io/commons-io/2.11.0/a2503f302b11ebde7ebc3df41daebe0e4eea3689/commons-io-2.11.0.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.adobe.xmp/xmpcore/6.1.11/852f14101381e527e6d43339d7db1698c970436c/xmpcore-6.1.11.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.sksamuel.scrimage/scrimage-formats-extra/4.0.22/2882d9aa53e3b5d4bacce5daccafda68afceaae8/scrimage-formats-extra-4.0.22.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.compose.foundation/foundation-layout-desktop/0.4.0/dbd71e8c3b90e859b0ca3b7b1e75091033f20960/foundation-layout-desktop-0.4.0.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.5.20/3d79dbd48bf605f4aac1e7028981a1953e245cbb/kotlin-stdlib-common-1.5.20.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-cli-jvm/0.3.2/894f219f721480e91204c77f40455730db717232/kotlinx-cli-jvm-0.3.2.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.twelvemonkeys.common/common-io/3.7.0/3f272f94eb7b054b8ea5fc5c679f7f7b89aaff77/common-io-3.7.0.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-lang3/3.11/68e9a6adf7cf8eb7e9d31bbc554c7c75eeaac568/commons-lang3-3.11.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.twelvemonkeys.imageio/imageio-bmp/3.7.0/c72b8f3acf9b3437cd6148eac144156458e8e881/imageio-bmp-3.7.0.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.twelvemonkeys.imageio/imageio-tga/3.7.0/38e4ffb5f02f1b7ac6861ff92c6be1ccc24bedab/imageio-tga-3.7.0.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.compose.animation/animation-desktop/0.4.0/af2e490608e458a20c8d51ba602ff6a6e25d7e61/animation-desktop-0.4.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-serialization-json-jvm/1.2.2/7cd520a077c5d1addfa8f80f39cd14cb2de027d7/kotlinx-serialization-json-jvm-1.2.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.ktor/ktor-network-tls-jvm/1.6.3/f15575f1a9951d9c4478c3c34922caf12f58b39e/ktor-network-tls-jvm-1.6.3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.sksamuel.scrimage/scrimage-webp/4.0.22/390f44f08a39fc7a26ec9bb8c2e59b1fd46ca2cb/scrimage-webp-4.0.22.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.twelvemonkeys.common/common-lang/3.7.0/3757c85d1f0c6482b4c63f19023fbe712de4c71c/common-lang-3.7.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.5.30/d68efdea04955974ac1020f8f66ef8176bfbce1f/kotlin-stdlib-1.5.30.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.twelvemonkeys.imageio/imageio-pnm/3.7.0/92ef07d0b6b279a0a865786eb84f46158fbd1704/imageio-pnm-3.7.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-core/1.1.2/2d23694879c2c12f125dac5076bdfd5d771cc4cb/logback-core-1.1.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-serialization-core-jvm/1.2.2/f1facb8403cacd65ee314f91fec216ba229f9ac2/kotlinx-serialization-core-jvm-1.2.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.ktor/ktor-http-cio-jvm/1.6.3/fc71cafd4d5c8402198ecd7c109325a082600e1c/ktor-http-cio-jvm-1.6.3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.twelvemonkeys.imageio/imageio-sgi/3.7.0/969187ccb394b9407c54e1da010f53bb186874dd/imageio-sgi-3.7.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.ktor/ktor-network-jvm/1.6.3/28719679bcbdcd145656ed30e714821a7b00002e/ktor-network-jvm-1.6.3.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.twelvemonkeys.imageio/imageio-metadata/3.7.0/3bf3c975f5819d8d051e28e1ff0fc73279aa9f29/imageio-metadata-3.7.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-coroutines-core-jvm/1.5.2-native-mt/26a9506d10d933615533c703483cec0a5c13a9f3/kotlinx-coroutines-core-jvm-1.5.2-native-mt.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.twelvemonkeys.common/common-image/3.7.0/b48b5bd350066b292f964d7f1bf5a1aedf8bb503/common-image-3.7.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.ktor/ktor-utils-jvm/1.6.3/ea6c29861827a8261a6dbc81b750b22bff33d151/ktor-utils-jvm-1.6.3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.twelvemonkeys.imageio/imageio-bmp/3.7.0/c72b8f3acf9b3437cd6148eac144156458e8e881/imageio-bmp-3.7.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.ktor/ktor-client-json-jvm/1.6.3/c55039cea3abf141a6aacc59f9a24232a642b63c/ktor-client-json-jvm-1.6.3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.twelvemonkeys.imageio/imageio-tiff/3.7.0/e017938eaf0a2d650810f245ae962b4b3009b54a/imageio-tiff-3.7.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.lingala.zip4j/zip4j/2.9.0/58740da7264264385869d913397e83df3c307687/zip4j-2.9.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.twelvemonkeys.common/common-io/3.7.0/3f272f94eb7b054b8ea5fc5c679f7f7b89aaff77/common-io-3.7.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.sksamuel.scrimage/scrimage-formats-extra/4.0.22/2882d9aa53e3b5d4bacce5daccafda68afceaae8/scrimage-formats-extra-4.0.22.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.5.30/649ffab7767038323fec0cc41e2d7b0a8f65a378/kotlin-stdlib-common-1.5.30.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.twelvemonkeys.imageio/imageio-iff/3.7.0/a4ccd43b8646cb18b7b22a3c12993be4480d8d73/imageio-iff-3.7.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.zh79325/open-gif/1.0.4/a52a4183dae721cb69dd1fcd4ef34b0bb72d7698/open-gif-1.0.4.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.ktor/ktor-client-serialization-jvm/1.6.3/ad1fb72dd6b4a6605009d17ce606a646f4247fd2/ktor-client-serialization-jvm-1.6.3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk8/1.5.30/5fd47535cc85f9e24996f939c2de6583991481b0/kotlin-stdlib-jdk8-1.5.30.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-lang3/3.11/68e9a6adf7cf8eb7e9d31bbc554c7c75eeaac568/commons-lang3-3.11.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-classic/1.1.2/b316e9737eea25e9ddd6d88eaeee76878045c6b2/logback-classic-1.1.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.drewnoakes/metadata-extractor/2.16.0/51092c14d9d7377b17a051333c229f1cd04605e6/metadata-extractor-2.16.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.ktor/ktor-io-jvm/1.6.3/95efbc837c7aad3fe13c8596c1051fb83db319b8/ktor-io-jvm-1.6.3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.twelvemonkeys.imageio/imageio-jpeg/3.7.0/7e09b2ff79f9ce23f361d8c2f41c72abcf3ab07/imageio-jpeg-3.7.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.ktor/ktor-http-jvm/1.6.3/540f31e65620a7a6fc6028ae027d37f3da7f459d/ktor-http-jvm-1.6.3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.twelvemonkeys.imageio/imageio-pcx/3.7.0/dd141a5a957d88c3a90eda56dc39727f1db924c6/imageio-pcx-3.7.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/13.0/919f0dfe192fb4e063e7dacadee7f8bb9a2672a9/annotations-13.0.jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>

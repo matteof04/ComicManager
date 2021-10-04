@@ -127,7 +127,13 @@ class ImageProcessor(private val deviceInformation: DeviceInformation) {
         val y1 = AutocropOps.scandown(backgroundColor, image.height, image.width, 0, pixelsExtractor, tolerance)
         val y2 = AutocropOps.scanup(backgroundColor, image.height, image.width, image.height - 1, pixelsExtractor, tolerance)
         return try {
-            image.subimage(x1, y1, x2 - x1, y2 - y1)
+            image.subimage(x1, y1, x2 - x1, y2 - y1).let {
+                if(it.height < 3 || it.width < 3){
+                    image
+                }else{
+                    it
+                }
+            }
         }catch (e: RuntimeException){
             image
         }
