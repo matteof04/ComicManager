@@ -13,6 +13,7 @@
 package com.github.matteof04.comicmanager
 
 import com.github.matteof04.comicmanager.updater.Updater
+import com.github.matteof04.comicmanager.util.VersionHelper
 import kotlin.system.measureTimeMillis
 
 fun main(args: Array<String>){
@@ -25,7 +26,7 @@ fun main(args: Array<String>){
 
     """.trimIndent())
     try {
-        val updater = Updater(VERSION)
+        val updater = Updater(VersionHelper.getVersion())
         if (updater.checkUpdate()){
             println("There's a new version available, click here to download!\n")
             println(updater.getUpdateURL())

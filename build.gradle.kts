@@ -34,3 +34,14 @@ tasks.test {
 tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
     kotlinOptions.jvmTarget = "11"
 }
+
+
+
+tasks.jar {
+    manifest {
+        attributes(
+            "Implementation-Title" to "Gradle",
+            "Implementation-Version" to archiveVersion
+        )
+    }
+}

@@ -10,6 +10,8 @@
  * You should have received a copy of the GNU General Public License along with ComicManager.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.github.matteof04.comicmanager
+package com.github.matteof04.comicmanager.util
 
-val VERSION = "2.0.0"
+object VersionHelper {
+    fun getVersion(): String = VersionHelper.javaClass.`package`.implementationVersion
+}
