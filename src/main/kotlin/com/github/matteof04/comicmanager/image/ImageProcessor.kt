@@ -128,7 +128,7 @@ class ImageProcessor(private val deviceInformation: DeviceInformation) {
         val y2 = AutocropOps.scanup(backgroundColor, image.height, image.width, image.height - 1, pixelsExtractor, tolerance)
         return try {
             image.subimage(x1, y1, x2 - x1, y2 - y1).let {
-                if(it.height < 3 || it.width < 3){
+                if(it.height < 5 || it.width < 5){
                     image
                 }else{
                     it

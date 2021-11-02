@@ -13,9 +13,9 @@ repositories {
 version = "2.0.1"
 
 dependencies {
-    implementation("io.ktor:ktor-client-core:1.6.3")
-    implementation("io.ktor:ktor-client-cio:1.6.3")
-    implementation("io.ktor:ktor-client-serialization:1.6.3")
+    implementation("io.ktor:ktor-client-core:1.6.4")
+    implementation("io.ktor:ktor-client-cio:1.6.4")
+    implementation("io.ktor:ktor-client-serialization:1.6.4")
     implementation("com.sksamuel.scrimage:scrimage-core:4.0.22")
     implementation("com.sksamuel.scrimage:scrimage-filters:4.0.22")
     implementation("com.sksamuel.scrimage:scrimage-webp:4.0.22")
