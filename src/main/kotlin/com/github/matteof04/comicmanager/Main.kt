@@ -25,17 +25,13 @@ fun main(args: Array<String>){
         under certain conditions; type `-l' or '--license' for details.
 
     """.trimIndent())
-    try {
-        val updater = Updater(VersionHelper.getVersion())
-        if (updater.checkUpdate()){
-            println("There's a new version available, click here to download!\n")
-            println(updater.getUpdateURL())
-        }
-    }catch (e:Exception){
-
+    val updater = Updater(VersionHelper.getVersion())
+    if (updater.checkUpdate()){
+        println("There's a new version available, click here to download!\n")
+        println(updater.getUpdateURL())
     }
     val time = measureTimeMillis {
         mainCli(args)
     } / 1000.0
-    println("Execution time: $time")
+    println("Execution time: $time s")
 }

@@ -28,8 +28,10 @@ class Updater(private val version: String) {
         }
     }
     fun checkUpdate() = runBlocking {
-        val latestRelease = client.get<LatestRelease>(updateURL)
-        return@runBlocking latestRelease.tagName != version && !latestRelease.prerelease
+        return@runBlocking kotlin.runCatching {
+            val latestRelease = client.get<LatestRelease>(updateURL)
+            latestRelease.tagName != version && !latestRelease.prerelease
+        }.getOrDefault(false)
     }
     fun getUpdateURL() = runBlocking {
         val latestRelease = client.get<LatestRelease>(updateURL)

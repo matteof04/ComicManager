@@ -19,11 +19,12 @@ import kotlin.io.path.name
 
 class VolumeSplitter {
     private val temp = createTempDirectory("VS")
-    fun split(title: String, input: Path, chaptersPerVolume: Int) : Path{
-        val volumes = input.listDirectoryEntries().sortedBy { StringHelper.fixString(it.name) }
+    fun split(title: String, input: Path, chaptersPerVolume: Int, recovery: Recovery) : Path{
+        val volumes = input.listDirectoryEntries().sortedBy { StringHelper.fixString(it.name) }.filter { !recovery.doneChaptersTitles.contains(it.name) }
+        val initialIndex = recovery.doneChaptersTitles.chunked(chaptersPerVolume).size
         volumes.chunked(chaptersPerVolume).forEachIndexed { index, volume ->
             volume.forEach {
-                it.toFile().copyRecursively(temp.resolve("$title - Volume ${index+1}/${it.name}").toFile())
+                it.toFile().copyRecursively(temp.resolve("$title - Volume ${index+initialIndex+1}/${it.name}").toFile())
             }
         }
         return temp

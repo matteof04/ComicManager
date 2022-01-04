@@ -23,6 +23,7 @@ import com.github.matteof04.comicmanager.image.util.BackgroundColors
 import com.github.matteof04.comicmanager.image.util.ResizeModes
 import com.github.matteof04.comicmanager.image.util.SplitModes
 import com.github.matteof04.comicmanager.util.LICENSE
+import com.github.matteof04.comicmanager.util.Recovery
 import com.github.matteof04.comicmanager.util.VolumeSplitter
 import kotlinx.cli.ArgParser
 import kotlinx.cli.ArgType
@@ -34,6 +35,7 @@ import kotlin.io.path.*
 
 fun mainCli(args: Array<String>){
     val parser = ArgParser("ComicManager")
+    val cliRecovery by parser.option(ArgType.Boolean, "recovery", "r", "Enable recovery").default(false)
     val cliDevice by parser.option(ArgType.Choice<DevicesInformations>(), "device", "d", "The device you want to CM prepare image for ~ Note: if custom height and width are set this will be ignored")
     val customHeight by parser.option(ArgType.Int, "height", description = "The height of your device in portrait mode (use this if your device is not a supported device)").default(0)
     val customWidth by parser.option(ArgType.Int, "width", description = "The width of your device in portrait mode (use this if your device is not a supported device)").default(0)
@@ -51,16 +53,27 @@ fun mainCli(args: Array<String>){
     val license by parser.option(ArgType.Boolean, "license", "l", "Show the license").default(false)
     val sync by parser.option(ArgType.Boolean, "sync", "s", "Elaborate the page synchronously").default(false)
     parser.parse(args)
+    val recoveryPath = Path(input).resolveSibling("recovery")
     if (license){
         println(LICENSE)
         return
+    }
+    val recovery = if (cliRecovery){
+        if(recoveryPath.toFile().exists()){
+            println("Recovery file found!")
+        }else{
+            println("Recovery file created!")
+        }
+        Recovery.createFromPath(Recovery.getFile(recoveryPath), cliSplitVolumes)
+    }else{
+        Recovery(chaptersPerVolume = cliSplitVolumes)
     }
     val contrast = if (disableAutocontrast){
         cliContrast
     }else{
         null
     }
-    val splitVolumes = cliSplitVolumes
+    val splitVolumes = recovery.chaptersPerVolume
     val tmpDevice = cliDevice
     val device = if(customHeight == 0 && customWidth == 0 && tmpDevice != null){
         tmpDevice
@@ -89,7 +102,7 @@ fun mainCli(args: Array<String>){
         var splitter: VolumeSplitter? = null
         val bookOptions = if(splitVolumes != null){
             splitter = VolumeSplitter()
-            splitter.split(Path(input).name, Path(input), splitVolumes).listDirectoryEntries().map {
+            splitter.split(Path(input).name, Path(input), splitVolumes, recovery).listDirectoryEntries().map {
                 BookOptions(device, format, pageProgressionDirection, backgroundColor, resizeMode, splitMode, contrast, author,
                     Path(input).resolveSibling("${it.name}${format.extension}"), it)
             }
@@ -97,10 +110,15 @@ fun mainCli(args: Array<String>){
             listOf(BookOptions(device, format, pageProgressionDirection, backgroundColor, resizeMode, splitMode, contrast, author,
                 Path(output), Path(input)))
         }
-        bookOptions.forEach {
-            bookCreator.create(it, sync)
+        bookOptions.sortedBy { it.output.name }.forEach { options ->
+            bookCreator.create(options, sync)
+            if (cliRecovery) {
+                recovery.doneChaptersTitles.addAll(options.input.listDirectoryEntries().map { it.name })
+                recovery.update(recoveryPath)
+            }
             System.gc()
         }
         splitter?.cleanUp()
+        Recovery.cleanUp(recoveryPath)
     }
 }

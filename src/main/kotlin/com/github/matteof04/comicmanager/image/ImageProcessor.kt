@@ -123,9 +123,9 @@ class ImageProcessor(private val deviceInformation: DeviceInformation) {
         val pixelsExtractor = { r: Rectangle -> mask.pixels(r.x, r.y, r.width, r.height) }
         val tolerance = 75
         val x1 = AutocropOps.scanright(backgroundColor, image.height, image.width, 0, pixelsExtractor, tolerance)
-        val x2 = AutocropOps.scanleft(backgroundColor, image.height, image.width, image.width - 1, pixelsExtractor, tolerance)
+        val x2 = AutocropOps.scanleft(backgroundColor, image.height, image.width - 1, pixelsExtractor, tolerance)
         val y1 = AutocropOps.scandown(backgroundColor, image.height, image.width, 0, pixelsExtractor, tolerance)
-        val y2 = AutocropOps.scanup(backgroundColor, image.height, image.width, image.height - 1, pixelsExtractor, tolerance)
+        val y2 = AutocropOps.scanup(backgroundColor, image.width, image.height - 1, pixelsExtractor, tolerance)
         return try {
             image.subimage(x1, y1, x2 - x1, y2 - y1).let {
                 if(it.height < 5 || it.width < 5){
