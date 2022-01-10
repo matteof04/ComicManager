@@ -10,7 +10,7 @@ repositories {
     google()
 }
 
-version = "3.0.1"
+version = "3.0.2"
 
 dependencies {
     implementation("io.ktor:ktor-client-core:1.6.7")

@@ -24,6 +24,7 @@ import com.github.matteof04.comicmanager.image.util.ResizeModes
 import com.github.matteof04.comicmanager.image.util.SplitModes
 import com.github.matteof04.comicmanager.util.LICENSE
 import com.github.matteof04.comicmanager.util.Recovery
+import com.github.matteof04.comicmanager.util.StringHelper
 import com.github.matteof04.comicmanager.util.VolumeSplitter
 import kotlinx.cli.ArgParser
 import kotlinx.cli.ArgType
@@ -110,7 +111,7 @@ fun mainCli(args: Array<String>){
             listOf(BookOptions(device, format, pageProgressionDirection, backgroundColor, resizeMode, splitMode, contrast, author,
                 Path(output), Path(input)))
         }
-        bookOptions.sortedBy { it.output.name }.forEach { options ->
+        bookOptions.sortedBy { StringHelper.fixString(it.output.name) }.forEach { options ->
             bookCreator.create(options, sync)
             if (cliRecovery) {
                 recovery.doneChaptersTitles.addAll(options.input.listDirectoryEntries().map { it.name })

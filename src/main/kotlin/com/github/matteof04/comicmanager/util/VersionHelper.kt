@@ -13,5 +13,5 @@
 package com.github.matteof04.comicmanager.util
 
 object VersionHelper {
-    fun getVersion(): String = VersionHelper.javaClass.`package`.implementationVersion
+    fun getVersion(): String = VersionHelper.javaClass.`package`.implementationVersion ?: "0.0.0"
 }
