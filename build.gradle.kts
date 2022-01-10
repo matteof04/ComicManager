@@ -1,8 +1,8 @@
-import org.jetbrains.kotlin.contracts.model.structure.UNKNOWN_COMPUTATION.type
 
 plugins {
     kotlin("jvm") version "1.6.10"
     kotlin("plugin.serialization") version "1.6.10"
+    id("com.github.johnrengelman.shadow") version "7.1.2"
 }
 
 repositories {
@@ -10,7 +10,7 @@ repositories {
     google()
 }
 
-version = "3.0.0"
+version = "3.0.1"
 
 dependencies {
     implementation("io.ktor:ktor-client-core:1.6.7")
@@ -33,4 +33,15 @@ tasks.test {
 
 tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
     kotlinOptions.jvmTarget = "11"
+}
+
+tasks.withType<com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar> {
+    manifest {
+        attributes["Main-Class"] = "com.github.matteof04.comicmanager.MainKt"
+        attributes["Implementation-Title"] = project.name
+        attributes["Implementation-Version"] = project.version
+    }
+    archiveBaseName.set(project.name+"-shadow")
+    archiveVersion.set(project.version.toString())
+    mergeServiceFiles()
 }
