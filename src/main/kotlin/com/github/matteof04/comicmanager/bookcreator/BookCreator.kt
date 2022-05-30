@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 Matteo Franceschini <matteof5730@gmail.com>
+ * Copyright (C) 2022 Matteo Franceschini <matteof5730@gmail.com>
  *
  * This file is part of ComicManager.
  * ComicManager is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
@@ -34,7 +34,6 @@ class BookCreator(private val sysOutput: (String) -> Unit) {
             Formats.EPUB -> EPUB(options.output, options.output.nameWithoutExtension, options.author, options.pageProgressionDirection, options.device)
             Formats.CBZ -> CBZ(options.output, options.output.nameWithoutExtension, options.author, options.pageProgressionDirection, options.device)
             Formats.KEPUB -> KEPUB(options.output, options.output.nameWithoutExtension.replace(".kepub", ""), options.author, options.pageProgressionDirection, options.device)
-            Formats.MOBI -> MOBI(options.output, options.output.nameWithoutExtension, options.author, options.pageProgressionDirection, options.device)
         }
         val directoryMode = inputDir.containsDirectories()
         lateinit var coverImage : Panel

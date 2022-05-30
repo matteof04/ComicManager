@@ -18,7 +18,6 @@ ComicManager is released under the GNU GPLv3 license. For more information see t
 - CBZ
 - EPUB 3
 - KEPUB
-- MOBI ([Require KindleGen](https://web.archive.org/web/20190817070956/https://www.amazon.com/gp/feature.html?docId=1000765211)) (Not tested)
 
 ### Supported devices
 - Kobo Forma
@@ -50,7 +49,7 @@ Options:
     --device, -d -> The device you want to CM prepare image for ~ Note: if custom height and width are set this will be ignored { Value should be one of [kobo_forma, kobo_clara_hd, kobo_libra_h20, kobo_mt, kobo_glo, kobo_glo_hd, kobo_aura, kobo_aura_hd, kobo_aura_h2o, kobo_aura_one, kindle_1, kindle_2, kindle_kt, kindle_dxg, kindle_paperwhite_1_2, kindle_paperwhite_3_4, kindle_voyage, kindle_oasis_1, kindle_oasis_2_3] }
     --height [0] -> The height of your device in portrait mode (use this if your device is not a supported device) { Int }
     --width [0] -> The width of your device in portrait mode (use this if your device is not a supported device) { Int }
-    --format, -f -> The format you want (if none is provided, CM choose the better format based on your device) { Value should be one of [epub, cbz, kepub, mobi] }
+    --format, -f -> The format you want (if none is provided, CM choose the better format based on your device) { Value should be one of [epub, cbz, kepub] }
     --page-progression-direction, -ppd [ltr] -> Select page progression direction { Value should be one of [ltr, rtl] }
     --background-color, -bg [NONE] -> Background color { Value should be one of [white, black, auto, none] }
     --resize-mode, -rm [UPSCALE] -> Choose resize mode { Value should be one of [stretch, upscale, nothing] }

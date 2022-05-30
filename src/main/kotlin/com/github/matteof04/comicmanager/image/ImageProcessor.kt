@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 Matteo Franceschini <matteof5730@gmail.com>
+ * Copyright (C) 2022 Matteo Franceschini <matteof5730@gmail.com>
  *
  * This file is part of ComicManager.
  * ComicManager is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
@@ -17,10 +17,7 @@ import com.github.matteof04.comicmanager.devices.base.DeviceInformation
 import com.github.matteof04.comicmanager.image.util.*
 import com.github.matteof04.comicmanager.util.Panel
 import com.github.matteof04.comicmanager.util.PanelMetadata
-import com.sksamuel.scrimage.AutocropOps
-import com.sksamuel.scrimage.ImmutableImage
-import com.sksamuel.scrimage.Position
-import com.sksamuel.scrimage.ScaleMethod
+import com.sksamuel.scrimage.*
 import com.sksamuel.scrimage.color.RGBColor
 import com.sksamuel.scrimage.filter.GaussianBlurFilter
 import com.sksamuel.scrimage.nio.JpegWriter

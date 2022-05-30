@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 Matteo Franceschini <matteof5730@gmail.com>
+ * Copyright (C) 2022 Matteo Franceschini <matteof5730@gmail.com>
  *
  * This file is part of ComicManager.
  * ComicManager is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
@@ -14,11 +14,16 @@ package com.github.matteof04.comicmanager
 
 import com.github.matteof04.comicmanager.updater.Updater
 import com.github.matteof04.comicmanager.util.VersionHelper
+import com.sksamuel.scrimage.ImmutableImage
+import com.sksamuel.scrimage.nio.PngWriter
+import java.io.File
+import kotlin.io.path.Path
 import kotlin.system.measureTimeMillis
 
 fun main(args: Array<String>){
+    System.setProperty("sun.java2d.opengl", "True")
     println("""
-        ComicManager  Copyright (C) 2021  Matteo Franceschini
+        ComicManager  Copyright (C) 2022  Matteo Franceschini
 
         This program comes with ABSOLUTELY NO WARRANTY.
         This is free software, and you are welcome to redistribute it

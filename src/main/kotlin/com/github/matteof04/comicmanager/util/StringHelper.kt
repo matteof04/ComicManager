@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 Matteo Franceschini <matteof5730@gmail.com>
+ * Copyright (C) 2022 Matteo Franceschini <matteof5730@gmail.com>
  *
  * This file is part of ComicManager.
  * ComicManager is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
@@ -13,7 +13,7 @@
 package com.github.matteof04.comicmanager.util
 
 object StringHelper {
-    fun fixString(string: String) =  Regex("(?<!\\.)([0-9]+)").replace(string) {
+    fun fixString(string: String) =  Regex("(?<!\\.)(\\d+)").replace(string) {
         it.value.padStart(4, '0')
     }
 }

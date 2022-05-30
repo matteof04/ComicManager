@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 Matteo Franceschini <matteof5730@gmail.com>
+ * Copyright (C) 2022 Matteo Franceschini <matteof5730@gmail.com>
  *
  * This file is part of ComicManager.
  * ComicManager is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
@@ -96,62 +96,62 @@ enum class DevicesInformations : DeviceInformation{
         override val resolution = Resolution(600, 670)
         override val palette = Palettes.PALETTE_4
         override val supportPanelView = false
-        override val formats = arrayOf(Formats.MOBI)
+        override val formats = arrayOf(Formats.EPUB, Formats.CBZ)
     },
     KINDLE_2{
         override val completeName = "Kindle 2"
         override val resolution = Resolution(600, 670)
         override val palette = Palettes.PALETTE_15
         override val supportPanelView = false
-        override val formats = arrayOf(Formats.MOBI)
+        override val formats = arrayOf(Formats.EPUB, Formats.CBZ)
     },
     KINDLE_KT{
         override val completeName = "Kindle Keyboard/Touch"
         override val resolution = Resolution(600, 800)
         override val palette = Palettes.PALETTE_16
         override val supportPanelView = false
-        override val formats = arrayOf(Formats.MOBI)
+        override val formats = arrayOf(Formats.EPUB, Formats.CBZ)
     },
     KINDLE_DXG{
         override val completeName = "Kindle DX/DXG"
         override val resolution = Resolution(824, 1000)
         override val palette = Palettes.PALETTE_16
         override val supportPanelView = false
-        override val formats = arrayOf(Formats.MOBI)
+        override val formats = arrayOf(Formats.EPUB, Formats.CBZ)
     },
     KINDLE_PAPERWHITE_1_2{
         override val completeName = "Kindle Paperwhite 1/2"
         override val resolution = Resolution(758, 1024)
         override val palette = Palettes.PALETTE_16
         override val supportPanelView = true
-        override val formats = arrayOf(Formats.MOBI)
+        override val formats = arrayOf(Formats.EPUB, Formats.CBZ)
     },
     KINDLE_PAPERWHITE_3_4{
         override val completeName = "Kindle Paperwhite 3/4"
         override val resolution = Resolution(1072, 1448)
         override val palette = Palettes.PALETTE_16
         override val supportPanelView = true
-        override val formats = arrayOf(Formats.MOBI)
+        override val formats = arrayOf(Formats.EPUB, Formats.CBZ)
     },
     KINDLE_VOYAGE{
         override val completeName = "Kindle Voyage"
         override val resolution = Resolution(1072, 1448)
         override val palette = Palettes.PALETTE_16
         override val supportPanelView = true
-        override val formats = arrayOf(Formats.MOBI)
+        override val formats = arrayOf(Formats.EPUB, Formats.CBZ)
     },
     KINDLE_OASIS_1{
         override val completeName = "Kindle Oasis"
         override val resolution = Resolution(1072, 1448)
         override val palette = Palettes.PALETTE_16
         override val supportPanelView = true
-        override val formats = arrayOf(Formats.MOBI)
+        override val formats = arrayOf(Formats.EPUB, Formats.CBZ)
     },
     KINDLE_OASIS_2_3{
         override val completeName = "Kindle Oasis 2/3"
         override val resolution = Resolution(1264, 1680)
         override val palette = Palettes.PALETTE_16
         override val supportPanelView = true
-        override val formats = arrayOf(Formats.MOBI)
+        override val formats = arrayOf(Formats.EPUB, Formats.CBZ)
     },
 }
