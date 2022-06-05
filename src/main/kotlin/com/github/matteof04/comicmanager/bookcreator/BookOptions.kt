@@ -17,7 +17,7 @@ import com.github.matteof04.comicmanager.formats.Formats
 import com.github.matteof04.comicmanager.formats.util.PageProgressionDirections
 import com.github.matteof04.comicmanager.image.util.BackgroundColors
 import com.github.matteof04.comicmanager.image.util.ResizeModes
-import com.github.matteof04.comicmanager.image.util.SplitModes
+import com.github.matteof04.comicmanager.image.util.DoublePagesHandlingMethod
 import java.nio.file.Path
 
 /**
@@ -29,7 +29,7 @@ data class BookOptions(
     val pageProgressionDirection: PageProgressionDirections,
     val backgroundColor: BackgroundColors,
     val resizeMode: ResizeModes,
-    val splitMode: SplitModes,
+    val splitMode: DoublePagesHandlingMethod,
     val contrast: Double?,
     val author: String,
     val output: Path,

@@ -10,21 +10,17 @@
  * You should have received a copy of the GNU General Public License along with ComicManager.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.github.matteof04.comicmanager.devices
+package com.github.matteof04.comicmanager.bookcreator
 
-import com.github.matteof04.comicmanager.devices.base.DeviceInformation
-import com.github.matteof04.comicmanager.devices.util.Palette
-import com.github.matteof04.comicmanager.devices.util.Resolution
-import com.github.matteof04.comicmanager.formats.Formats
+import java.nio.file.Path
 
-/**
- * Create a new [DeviceInformation] with the passed [Resolution]
- */
-data class CustomDeviceInformation(
-    override val resolution: Resolution,
-) : DeviceInformation{
-    override val completeName = "Custom device"
-    override val palette = Palette(null)
-    override val supportPanelView = false
-    override val formats = Formats.values()
+data class Result(
+    val resultType: ResultType,
+    val resultPath: Path? = null
+) {
+    enum class ResultType {
+        CHAPTER,
+        COVER,
+        BOOK
+    }
 }

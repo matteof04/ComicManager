@@ -46,7 +46,7 @@ class ImageProcessor(private val deviceInformation: DeviceInformation) {
         val image = ImmutableImage.loader().fromPath(path)
         if (image.width > image.height) {
             return when (options.splitMode) {
-                SplitModes.ROTATE -> {
+                DoublePagesHandlingMethod.ROTATE -> {
                     arrayListOf(
                         Panel(
                             prepareImage(image.rotateLeft(), options.resizeMode, options.backgroundColor, options.contrast).output(
@@ -56,7 +56,7 @@ class ImageProcessor(private val deviceInformation: DeviceInformation) {
                         )
                     )
                 }
-                SplitModes.SPLIT -> {
+                DoublePagesHandlingMethod.SPLIT -> {
                     val firstImage =
                         image.resizeTo(image.width / 2, image.height, Position.CenterLeft)
                     val secondImage =

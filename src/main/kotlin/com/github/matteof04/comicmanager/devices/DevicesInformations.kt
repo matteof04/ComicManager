@@ -147,11 +147,14 @@ enum class DevicesInformations : DeviceInformation{
         override val supportPanelView = true
         override val formats = arrayOf(Formats.EPUB, Formats.CBZ)
     },
-    KINDLE_OASIS_2_3{
+    KINDLE_OASIS_2_3 {
         override val completeName = "Kindle Oasis 2/3"
         override val resolution = Resolution(1264, 1680)
         override val palette = Palettes.PALETTE_16
         override val supportPanelView = true
         override val formats = arrayOf(Formats.EPUB, Formats.CBZ)
-    },
+    };
+    companion object {
+        fun valueOfCompleteName(completeName: String) = values().firstOrNull { it.completeName == completeName }
+    }
 }

@@ -10,14 +10,20 @@
  * You should have received a copy of the GNU General Public License along with ComicManager.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.github.matteof04.comicmanager.image.util
+package com.github.matteof04.comicmanager.util.ui
 
-/**
- * Modes to use for double-page images
- * @property ROTATE Rotates the image
- * @property SPLIT Cuts the image in two image
- */
-enum class SplitModes {
-    ROTATE,
-    SPLIT
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Row
+import androidx.compose.material.Checkbox
+import androidx.compose.material.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+
+@Composable
+fun TextWithCheckbox(text: String, modifier: Modifier, checked: Boolean, onCheckedChange: ((Boolean) -> Unit)){
+    Row(modifier, verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.Center) {
+        Text(text)
+        Checkbox(checked, onCheckedChange)
+    }
 }

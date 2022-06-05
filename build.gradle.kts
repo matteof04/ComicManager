@@ -12,21 +12,22 @@
 
 
 plugins {
-    kotlin("jvm") version "1.6.20"
-    kotlin("plugin.serialization") version "1.6.20"
+    kotlin("jvm") version "1.6.10"
+    kotlin("plugin.serialization") version "1.6.10"
+    id("org.jetbrains.compose") version "1.1.0"
     application
 }
 
 repositories {
     mavenCentral()
+    maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
     google()
 }
 
-version = "3.0.2"
+version = "4.0.0"
 
 application {
     mainClass.set("com.github.matteof04.comicmanager.MainKt")
-    applicationDefaultJvmArgs = listOf("-Dsun.java2d.opengl=True")
 }
 
 dependencies {
@@ -43,6 +44,9 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-cli:0.3.4")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.1-native-mt")
     testImplementation("org.jetbrains.kotlin:kotlin-test:1.5.21")
+    implementation(compose.desktop.currentOs)
+    implementation(compose.material)
+    implementation(compose.materialIconsExtended)
 }
 
 tasks.test {

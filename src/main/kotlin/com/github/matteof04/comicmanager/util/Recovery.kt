@@ -12,12 +12,6 @@
 
 package com.github.matteof04.comicmanager.util
 
-import com.github.matteof04.comicmanager.devices.base.DeviceInformation
-import com.github.matteof04.comicmanager.formats.Formats
-import com.github.matteof04.comicmanager.formats.util.PageProgressionDirections
-import com.github.matteof04.comicmanager.image.util.BackgroundColors
-import com.github.matteof04.comicmanager.image.util.ResizeModes
-import com.github.matteof04.comicmanager.image.util.SplitModes
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString

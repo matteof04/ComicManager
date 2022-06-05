@@ -12,21 +12,25 @@
 
 package com.github.matteof04.comicmanager.bookcreator
 
+import com.github.matteof04.comicmanager.bookcreator.Result
 import com.github.matteof04.comicmanager.formats.*
 import com.github.matteof04.comicmanager.formats.util.Chapter
 import com.github.matteof04.comicmanager.image.ImageProcessor
-import com.github.matteof04.comicmanager.image.util.SplitModes
+import com.github.matteof04.comicmanager.image.util.DoublePagesHandlingMethod
 import com.github.matteof04.comicmanager.image.util.isImage
 import com.github.matteof04.comicmanager.util.*
 import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.launch
+import java.nio.file.Path
 import kotlin.io.path.isDirectory
 import kotlin.io.path.listDirectoryEntries
 import kotlin.io.path.name
 import kotlin.io.path.nameWithoutExtension
 
 @Suppress("BlockingMethodInNonBlockingContext")
-class BookCreator(private val sysOutput: (String) -> Unit) {
+class BookCreator(private val sysOutput: (Result) -> Unit) {
     suspend fun create(options: BookOptions, sync: Boolean) {
         val processor = ImageProcessor(options.device)
         val inputDir = options.input
@@ -53,14 +57,14 @@ class BookCreator(private val sysOutput: (String) -> Unit) {
                         }
                     }
                     outputFile.addChapter(Chapter(StringHelper.fixString(chapterDir.name), pages))
-                    sysOutput("Chapter ${chapterDir.name.replace(Regex("([^0-9])*"), "").padStart(4, '0')} created!")
+                    sysOutput(Result(Result.ResultType.CHAPTER, chapterDir))
                 }
             }
             coverImage = processor.preparePanel(
                 inputDir.listDirectoryEntries().minOrNSEE().listDirectoryEntries().minOrNSEE(),
-                options.copy(splitMode = SplitModes.ROTATE)
+                options.copy(splitMode = DoublePagesHandlingMethod.ROTATE)
             ).first()
-            sysOutput("Cover created!")
+            sysOutput(Result(Result.ResultType.COVER))
         }else{
             val pages = ArrayList<Panel>()
             coroutineScope {
@@ -79,16 +83,12 @@ class BookCreator(private val sysOutput: (String) -> Unit) {
             outputFile.addChapter(Chapter(inputDir.name, pages))
             coverImage = processor.preparePanel(
                 inputDir.listDirectoryEntries().minOrNSEE(),
-                options.copy(splitMode = SplitModes.ROTATE)
+                options.copy(splitMode = DoublePagesHandlingMethod.ROTATE)
             ).first()
-            sysOutput("Cover created!")
+            sysOutput(Result(Result.ResultType.COVER))
         }
         outputFile.build(coverImage)
-        sysOutput("File built!")
+        sysOutput(Result(Result.ResultType.BOOK))
         processor.cleanUp()
-        sysOutput("Image temporary directory cleaned!")
     }
-
-    @Deprecated("Renamed", ReplaceWith("BookCreator.create()"), DeprecationLevel.WARNING)
-    suspend fun convert(options: BookOptions, sync: Boolean) = create(options, sync)
 }

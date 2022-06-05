@@ -21,7 +21,7 @@ import kotlin.io.path.Path
 import kotlin.system.measureTimeMillis
 
 fun main(args: Array<String>){
-    System.setProperty("sun.java2d.opengl", "True")
+    //System.setProperty("sun.java2d.opengl", "True")
     println("""
         ComicManager  Copyright (C) 2022  Matteo Franceschini
 
@@ -35,8 +35,12 @@ fun main(args: Array<String>){
         println("There's a new version available, click here to download!\n")
         println(updater.getUpdateURL())
     }
-    val time = measureTimeMillis {
-        mainCli(args)
-    } / 1000.0
-    println("Execution time: $time s")
+    if(args.isNotEmpty()){
+        val time = measureTimeMillis {
+            mainCli(args)
+        } / 1000.0
+        println("Execution time: $time s")
+    }else{
+        mainUi()
+    }
 }

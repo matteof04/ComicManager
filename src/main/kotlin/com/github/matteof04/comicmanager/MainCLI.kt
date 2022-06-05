@@ -14,6 +14,7 @@ package com.github.matteof04.comicmanager
 
 import com.github.matteof04.comicmanager.bookcreator.BookCreator
 import com.github.matteof04.comicmanager.bookcreator.BookOptions
+import com.github.matteof04.comicmanager.bookcreator.Result
 import com.github.matteof04.comicmanager.devices.CustomDeviceInformation
 import com.github.matteof04.comicmanager.devices.DevicesInformations
 import com.github.matteof04.comicmanager.devices.util.Resolution
@@ -21,7 +22,7 @@ import com.github.matteof04.comicmanager.formats.Formats
 import com.github.matteof04.comicmanager.formats.util.PageProgressionDirections
 import com.github.matteof04.comicmanager.image.util.BackgroundColors
 import com.github.matteof04.comicmanager.image.util.ResizeModes
-import com.github.matteof04.comicmanager.image.util.SplitModes
+import com.github.matteof04.comicmanager.image.util.DoublePagesHandlingMethod
 import com.github.matteof04.comicmanager.util.LICENSE
 import com.github.matteof04.comicmanager.util.Recovery
 import com.github.matteof04.comicmanager.util.StringHelper
@@ -44,7 +45,7 @@ fun mainCli(args: Array<String>){
     val pageProgressionDirection by parser.option(ArgType.Choice<PageProgressionDirections>(), "page-progression-direction", "ppd", "Select page progression direction").default(PageProgressionDirections.LEFT_TO_RIGHT)
     val backgroundColor by parser.option(ArgType.Choice<BackgroundColors>(), "background-color", "bg", "Background color").default(BackgroundColors.NONE)
     val resizeMode by parser.option(ArgType.Choice<ResizeModes>(), "resize-mode", "rm", "Choose resize mode").default(ResizeModes.UPSCALE)
-    val splitMode by parser.option(ArgType.Choice<SplitModes>(), "split-mode", "sm", "Choose split mode").default(SplitModes.SPLIT)
+    val splitMode by parser.option(ArgType.Choice<DoublePagesHandlingMethod>(), "split-mode", "sm", "Choose split mode").default(DoublePagesHandlingMethod.SPLIT)
     val cliContrast by parser.option(ArgType.Double, "contrast", "c", "Manually adjust the image contrast").default(1.0)
     val disableAutocontrast by parser.option(ArgType.Boolean, "no-autocontrast", "noac", "Disable autocontrast ~ Note: if autocontrast is enabled contrast passed value is ignored").default(false)
     val author by parser.option(ArgType.String, "author", "a", "Manually set the author").default("ComicManager")
@@ -98,7 +99,13 @@ fun mainCli(args: Array<String>){
     if (output == null){
         output = Path(input).resolveSibling(Path(input).name + format.extension).toString()
     }
-    val bookCreator = BookCreator { println(it) }
+    val bookCreator = BookCreator {
+        when(it.resultType){
+            Result.ResultType.CHAPTER -> println("Chapter ${StringHelper.fixString(it.resultPath?.name ?: "")} created!")
+            Result.ResultType.COVER -> println("Cover created!")
+            Result.ResultType.BOOK -> println("File built!")
+        }
+    }
     runBlocking(Dispatchers.IO) {
         var splitter: VolumeSplitter? = null
         val bookOptions = if(splitVolumes != null){
