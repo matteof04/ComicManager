@@ -12,18 +12,20 @@
 
 package com.github.matteof04.comicmanager.bookcreator
 
-import com.github.matteof04.comicmanager.bookcreator.Result
-import com.github.matteof04.comicmanager.formats.*
+import com.github.matteof04.comicmanager.formats.CBZ
+import com.github.matteof04.comicmanager.formats.EPUB
+import com.github.matteof04.comicmanager.formats.Formats
+import com.github.matteof04.comicmanager.formats.KEPUB
 import com.github.matteof04.comicmanager.formats.util.Chapter
 import com.github.matteof04.comicmanager.image.ImageProcessor
 import com.github.matteof04.comicmanager.image.util.DoublePagesHandlingMethod
 import com.github.matteof04.comicmanager.image.util.isImage
-import com.github.matteof04.comicmanager.util.*
+import com.github.matteof04.comicmanager.util.Panel
+import com.github.matteof04.comicmanager.util.StringHelper
+import com.github.matteof04.comicmanager.util.containsDirectories
+import com.github.matteof04.comicmanager.util.minOrNSEE
 import kotlinx.coroutines.coroutineScope
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.launch
-import java.nio.file.Path
 import kotlin.io.path.isDirectory
 import kotlin.io.path.listDirectoryEntries
 import kotlin.io.path.name

@@ -41,7 +41,9 @@ import com.github.matteof04.comicmanager.formats.util.PageProgressionDirections
 import com.github.matteof04.comicmanager.image.util.BackgroundColors
 import com.github.matteof04.comicmanager.image.util.DoublePagesHandlingMethod
 import com.github.matteof04.comicmanager.image.util.ResizeModes
+import com.github.matteof04.comicmanager.util.Recovery
 import com.github.matteof04.comicmanager.util.StringHelper
+import com.github.matteof04.comicmanager.util.VolumeSplitter
 import com.github.matteof04.comicmanager.util.ui.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -275,36 +277,62 @@ fun App() {
                             DevicesInformations.valueOfCompleteName(device.value) ?: DevicesInformations.KOBO_FORMA
                         }
                         val selectedFormat = Formats.valueOf(format.value)
-                        val output = outputDir.value.resolve(inputDir.value.path.name + selectedFormat.extension)
-                        val bookOptions = BookOptions(
-                            devicesInformation,
-                            selectedFormat,
-                            pageProgressionDirections,
-                            BackgroundColors.valueOf(backgroundColor.value),
-                            ResizeModes.valueOf(resizeMode.value),
-                            DoublePagesHandlingMethod.valueOf(doublePageHandlingMethod.value),
-                            contrast.value,
-                            "ComicManager",
-                            output,
-                            inputDir.value.path
-                        )
-                        launch(Dispatchers.IO) {
-                            BookCreator { result ->
-                                when(result.resultType){
-                                    Result.ResultType.CHAPTER -> {
-                                        val doneDir = directoryEntries.firstOrNull { it.path == result.resultPath }
-                                        doneDir?.let {
-                                            directoryEntries.remove(doneDir)
-                                            directoryEntries.add(doneDir.done())
-                                        }
+                        val splitter = if(splitMode.value){
+                            VolumeSplitter()
+                        }else{
+                            null
+                        }
+                        val bookOptions = if(splitter != null){
+                            VolumeSplitter().split(inputDir.value.path.name, inputDir.value.path, splitModeValue.value, Recovery()).listDirectoryEntries().map {
+                                BookOptions(
+                                    devicesInformation,
+                                    selectedFormat,
+                                    pageProgressionDirections,
+                                    BackgroundColors.valueOf(backgroundColor.value),
+                                    ResizeModes.valueOf(resizeMode.value),
+                                    DoublePagesHandlingMethod.valueOf(doublePageHandlingMethod.value),
+                                    contrast.value,
+                                    "ComicManager",
+                                    outputDir.value.resolveSibling("${it.name}${selectedFormat.extension}"),
+                                    it
+                                )
+                            }
+                        }else{
+                            listOf(
+                                BookOptions(
+                                    devicesInformation,
+                                    selectedFormat,
+                                    pageProgressionDirections,
+                                    BackgroundColors.valueOf(backgroundColor.value),
+                                    ResizeModes.valueOf(resizeMode.value),
+                                    DoublePagesHandlingMethod.valueOf(doublePageHandlingMethod.value),
+                                    contrast.value,
+                                    "ComicManager",
+                                    outputDir.value.resolve(inputDir.value.path.name + selectedFormat.extension),
+                                    inputDir.value.path
+                                )
+                            )
+                        }
+                        val bookCreator = BookCreator { result ->
+                            when(result.resultType){
+                                Result.ResultType.CHAPTER -> {
+                                    val doneDir = directoryEntries.firstOrNull { it.path == result.resultPath }
+                                    doneDir?.let {
+                                        directoryEntries.remove(doneDir)
+                                        directoryEntries.add(doneDir.done())
                                     }
-                                    Result.ResultType.BOOK -> {
-                                        inputDir.value = inputDir.value.done()
-                                        lockUI.value = false
-                                    }
-                                    Result.ResultType.COVER -> {  }
                                 }
-                            }.create(bookOptions, false)
+                                Result.ResultType.BOOK -> {
+                                    inputDir.value = inputDir.value.done()
+                                    lockUI.value = false
+                                }
+                                Result.ResultType.COVER -> {  }
+                            }
+                        }
+                        launch(Dispatchers.IO) {
+                            bookOptions.forEach {
+                                bookCreator.create(it, false)
+                            }
                         }
                     }
                 }
