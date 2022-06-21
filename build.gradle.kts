@@ -28,21 +28,22 @@ version = "4.0.0"
 
 application {
     mainClass.set("com.github.matteof04.comicmanager.MainKt")
+    applicationDefaultJvmArgs = listOf("-Dapplication.version=$version")
 }
 
 dependencies {
-    implementation("io.ktor:ktor-client-core:2.0.0")
-    implementation("io.ktor:ktor-client-cio:2.0.0")
-    implementation("io.ktor:ktor-client-serialization:2.0.0")
-    implementation("io.ktor:ktor-serialization-kotlinx-json:2.0.0")
-    implementation("io.ktor:ktor-client-content-negotiation:2.0.0")
+    implementation("io.ktor:ktor-client-core:2.0.2")
+    implementation("io.ktor:ktor-client-cio:2.0.2")
+    implementation("io.ktor:ktor-client-serialization:2.0.2")
+    implementation("io.ktor:ktor-serialization-kotlinx-json:2.0.2")
+    implementation("io.ktor:ktor-client-content-negotiation:2.0.2")
     implementation("com.sksamuel.scrimage:scrimage-core:4.0.30")
     implementation("com.sksamuel.scrimage:scrimage-filters:4.0.31")
     implementation("com.sksamuel.scrimage:scrimage-webp:4.0.30")
     implementation("com.sksamuel.scrimage:scrimage-formats-extra:4.0.31")
     implementation("net.lingala.zip4j:zip4j:2.10.0")
     implementation("org.jetbrains.kotlinx:kotlinx-cli:0.3.4")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.1-native-mt")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.2")
     testImplementation("org.jetbrains.kotlin:kotlin-test:1.5.21")
     implementation(compose.desktop.currentOs)
     implementation(compose.material)
