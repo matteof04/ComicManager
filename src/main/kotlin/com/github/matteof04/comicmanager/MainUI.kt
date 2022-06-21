@@ -72,7 +72,7 @@ fun App() {
     val splitMode = remember { mutableStateOf(true) }
     val splitModeValue = remember { mutableStateOf(10) }
     val contrast = remember { mutableStateOf(1.0) }
-    val format = remember { mutableStateOf("EPUB") }
+    val format = remember { mutableStateOf("KEPUB") }
     val device = remember { mutableStateOf("Kobo Forma") }
     val customDevice = remember { derivedStateOf { device.value == "Custom device" } }
     val customDeviceWidth = remember { mutableStateOf(0) }
@@ -283,7 +283,7 @@ fun App() {
                             null
                         }
                         val bookOptions = if(splitter != null){
-                            VolumeSplitter().split(inputDir.value.path.name, inputDir.value.path, splitModeValue.value, Recovery(chaptersPerVolume = splitModeValue.value)).listDirectoryEntries().map {
+                            splitter.split(inputDir.value.path.name, inputDir.value.path, splitModeValue.value, Recovery(chaptersPerVolume = splitModeValue.value)).listDirectoryEntries().map {
                                 BookOptions(
                                     devicesInformation,
                                     selectedFormat,
@@ -293,7 +293,7 @@ fun App() {
                                     DoublePagesHandlingMethod.valueOf(doublePageHandlingMethod.value),
                                     contrast.value,
                                     "ComicManager",
-                                    outputDir.value.resolveSibling("${it.name}${selectedFormat.extension}"),
+                                    outputDir.value.resolve("${it.name}${selectedFormat.extension}"),
                                     it
                                 )
                             }
@@ -316,22 +316,30 @@ fun App() {
                         val bookCreator = BookCreator { result ->
                             when(result.resultType){
                                 Result.ResultType.CHAPTER -> {
-                                    val doneDir = directoryEntries.firstOrNull { it.path == result.resultPath }
+                                    val doneDir = directoryEntries.firstOrNull { it.path.name == result.resultPath?.name  }
                                     doneDir?.let {
                                         directoryEntries.remove(doneDir)
                                         directoryEntries.add(doneDir.done())
                                     }
                                 }
                                 Result.ResultType.BOOK -> {
-                                    inputDir.value = inputDir.value.done()
-                                    lockUI.value = false
+                                    if(splitter == null){
+                                        inputDir.value = inputDir.value.done()
+                                        lockUI.value = false
+                                    }
                                 }
                                 Result.ResultType.COVER -> {  }
                             }
                         }
                         launch(Dispatchers.IO) {
-                            bookOptions.forEach {
+                            bookOptions.sortedBy { StringHelper.fixString(it.output.name) }.forEach {
                                 bookCreator.create(it, false)
+                            }
+                        }.invokeOnCompletion {
+                            if(splitter != null){
+                                splitter.cleanUp()
+                                inputDir.value = inputDir.value.done()
+                                lockUI.value = false
                             }
                         }
                     }
