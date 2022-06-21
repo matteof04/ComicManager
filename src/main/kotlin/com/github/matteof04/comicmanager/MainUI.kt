@@ -283,7 +283,7 @@ fun App() {
                             null
                         }
                         val bookOptions = if(splitter != null){
-                            VolumeSplitter().split(inputDir.value.path.name, inputDir.value.path, splitModeValue.value, Recovery()).listDirectoryEntries().map {
+                            VolumeSplitter().split(inputDir.value.path.name, inputDir.value.path, splitModeValue.value, Recovery(chaptersPerVolume = splitModeValue.value)).listDirectoryEntries().map {
                                 BookOptions(
                                     devicesInformation,
                                     selectedFormat,
